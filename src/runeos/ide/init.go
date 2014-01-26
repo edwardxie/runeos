@@ -9,8 +9,9 @@ import (
 const ()
 
 var (
-	ws  *Workspace
-	rfs []string
+	globalEnv map[string]interface{}
+	ws        *Workspace
+	rfs       []string
 )
 
 func init() {
