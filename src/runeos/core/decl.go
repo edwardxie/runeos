@@ -11,8 +11,6 @@ type Object interface {
 }
 
 type Propertyer interface {
-	Id() string
-	Name() string
 	Super(*Object)
 }
 
@@ -28,11 +26,11 @@ type Eventer interface {
 }
 
 type Geter interface {
-	Get() interface{}
+	Get(...interface{}) interface{}
 }
 
 type Seter interface {
-	Set(interface{})
+	Set(...interface{}) error
 }
 
 type Flusher interface {
@@ -53,13 +51,14 @@ type Value struct{}
 type Values []Value
 
 type object struct {
-	oid    string
-	name   string
-	parent *Object
-	lnext  *Object
-	rnext  *Object
-	member []*Variant
-	inject map[reflect.Type]reflect.Value
+	// oid    string
+	name    string
+	setflag string
+	parent  *Object
+	lnext   *Object
+	rnext   *Object
+	member  []*Variant
+	inject  map[reflect.Type]reflect.Value
 }
 
 type event struct {
