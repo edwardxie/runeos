@@ -1,4 +1,4 @@
-package core
+package gooop
 
 import (
 	"testing"
@@ -20,13 +20,14 @@ func Test_NewObject(t *testing.T) {
 	if err := obj.Set("_NAME_", "testData1"); err != nil {
 		t.Error(err)
 	}
-	if err := obj.Set("_NAME_", 12); err != nil {
-		t.Error(err)
-	}
+	// if err := obj.Set("_NAME_", 12); err != nil {
+	// 	t.Error(err)
+	// }
 	obj.Set(tmp)
 	// tmp.Flush()
 	// t.Logf("Master: %#v\nSubject: %#v\n", obj, tmp)
 	// t.Logf("GetValue: %#v\n", obj.Get())
 	// t.Logf("GetValue: %#v\nSubObject: %#v\n", obj.Get(),
 	// obj.Get().([]interface{})[3].(Object).Get())
+	t.Logf("\nAddress: \t%v\nType: \t%v\nPRT: %v\n", obj.Get("_THIS_"), obj.Get("_TYPE_"), obj.Get("_PRT_"))
 }

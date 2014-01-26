@@ -1,4 +1,4 @@
-package core
+package gooop
 
 import (
 	// "container/list"
@@ -6,10 +6,6 @@ import (
 	// "reflect"
 	// "runeos/utils"
 )
-
-func (o *object) method(params ...interface{}) interface{} {
-	return nil
-}
 
 func NewObject(params ...interface{}) Object {
 	isName := false
@@ -62,8 +58,8 @@ func (o *object) Get(params ...interface{}) interface{} {
 		switch param.(type) {
 		case string:
 			switch param {
-			case "_ID_":
-				return fmt.Sprintf("%v", o)
+			case "_THIS_":
+				return &o
 			case "_NAME_":
 				return o.name
 			case "_TYPE_":

@@ -1,4 +1,4 @@
-package core
+package gooop
 
 func (m *MetaType) RegisterMetaType(name string, typ interface{}) {}
 

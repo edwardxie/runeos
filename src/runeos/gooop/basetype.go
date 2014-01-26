@@ -1,4 +1,4 @@
-package core
+package gooop
 
 type BasicKind int
 

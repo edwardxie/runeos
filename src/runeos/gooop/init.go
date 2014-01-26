@@ -1,4 +1,4 @@
-package core
+package gooop
 
 const (
 	Array MetaTypeKind = 100 << iota
