@@ -13,27 +13,28 @@ ADDR=":8080"
 # fi
 
 PWD=`pwd`
-GO_INSTALL_LIST="utils fsnotify golua core ide cmd"
-PKG="${PWD}/pkg"
+# GO_INSTALL_LIST="utils fsnotify golua core ide cmd"
+# PKG="${PWD}/pkg"
+export RUNEOS_ROOT=${PWD}
 export GOPATH=${PWD}:$GOPATH
 
-goinstall() {
-    pkg="${1}"
-    # if [[ ! -d "${PKG}" ]]; then
-        GOCMD="go install ${APP}/${pkg}"
-        # echo ${GOCMD}
-        ${GOCMD}
-    # fi 
-}
+# goinstall() {
+#     pkg="${1}"
+#     # if [[ ! -d "${PKG}" ]]; then
+#         GOCMD="go install ${APP}/${pkg}"
+#         # echo ${GOCMD}
+#         ${GOCMD}
+#     # fi 
+# }
 
 
-for pkg in ${GO_INSTALL_LIST}; do
-    goinstall ${pkg}
-done
+# for pkg in ${GO_INSTALL_LIST}; do
+#     goinstall ${pkg}
+# done
 
-if [ -f bin/${APP} ]; then
-    rm bin/${APP}
-fi
+# if [ -f bin/${APP} ]; then
+#     rm bin/${APP}
+# fi
 
 # echo "Building ${APP}"
 go build -ldflags="-s -w" -o bin/$APP ./src
