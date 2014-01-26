@@ -23,6 +23,8 @@ func (o *object) Set(v interface{}) {}
 
 func (o *object) Get() interface{} { return nil }
 
+func (o *object) Super(super *Object) { o.parent = super }
+
 func (o *object) Flush() {}
 
 func (o *object) AddEvent() {}

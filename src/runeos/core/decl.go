@@ -1,5 +1,9 @@
 package core
 
+import (
+	"reflect"
+)
+
 type Object interface {
 	Propertyer
 	Methoder
@@ -9,6 +13,7 @@ type Object interface {
 type Propertyer interface {
 	Id() string
 	Name() string
+	Super(*Object)
 }
 
 type Methoder interface {
@@ -51,10 +56,15 @@ type object struct {
 	oid    string
 	name   string
 	parent *Object
-	data   *Variant
+	lnext  *Object
+	rnext  *Object
+	member []*Variant
+	inject map[reflect.Type]reflect.Value
 }
 
 type event struct {
 	Object
 	Methods map[string]interface{}
 }
+
+type trigger struct{}
