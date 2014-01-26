@@ -1,0 +1,21 @@
+{
+	"Env": {
+		"Os": "linux",
+		"Language": "",
+		"Arch": "amd64",
+		"GOROOT": "/home/edward/dev/go-dev",
+		"GOPATH": "/home/edward/projects/goprj/runeos:/home/edward/projects/goprj/gopath"
+	},
+	"Setting": {
+		"Editor": {
+			"FontFace": "Droid Sans Mono",
+			"FontSize": 11,
+			"TabSize": 0,
+			"Theme": "Soda Drak 3 Theme",
+			"ColorScheme": "",
+			"LineNumber": true
+		},
+		"KeyMaps": {}
+	},
+	"Projects": null
+}

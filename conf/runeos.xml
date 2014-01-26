@@ -1,0 +1,13 @@
+<Workspace>
+	<Os>linux</Os>
+	<Language></Language>
+	<Arch>amd64</Arch>
+	<Goroot>/home/edward/dev/go-dev</Goroot>
+	<Gopath>/home/edward/projects/goprj/runeos:/home/edward/projects/goprj/gopath</Gopath>
+	<FontFace>Droid Sans Mono</FontFace>
+	<FontSize>11</FontSize>
+	<TabSize>0</TabSize>
+	<Theme>Soda Drak 3 Theme</Theme>
+	<ColorScheme></ColorScheme>
+	<LineNumber>true</LineNumber>
+</Workspace>

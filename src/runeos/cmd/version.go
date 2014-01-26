@@ -1,0 +1,8 @@
+package cmd
+
+const (
+	RUNEOS_NAME           = "Runeos"
+	RUNEOS_VERSION        = "1.0.1.001"
+	RUNEOS_VERSION_NUMBAR = 1000001
+	RUNEOS_SOURCE_ID      = "2013-12-28 16:00:00 c0e09560d26f0a6456be9dd3447f5311eb4f238f"
+)
