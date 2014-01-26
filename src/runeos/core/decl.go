@@ -68,3 +68,13 @@ type event struct {
 }
 
 type trigger struct{}
+
+type MetaTypeKind int
+
+type MetaTyper interface{}
+
+type MetaType struct {
+	kind map[string]interface{}
+	info map[int]string
+	flag int
+}
