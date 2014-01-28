@@ -9,7 +9,7 @@ import (
 
 func NewObject(params ...interface{}) Object {
 	isName := false
-	obj := object{} //oid: utils.NewID().UUID(
+	obj := object{}
 	if len(params) == 0 {
 		return Object(&obj)
 	}
