@@ -4,10 +4,10 @@ Runeos
 Golang Integrated development environment IDE
 
 Run command line: <br>
->Windows <br>
->scripts\build webserver :8080 <br><br>
->Linux <br>  
->scripts/build.bash webserver :8080 <br>
+>Windows: <br>
+>   scripts\build webserver :8080 <br><br>
+>Linux: <br>
+>   scripts/build.bash webserver :8080 <br>
 
 
 <br>
