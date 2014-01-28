@@ -1,12 +1,14 @@
 Runeos
 ======
 
-Golang Integrated development environment IDE
+Golang Integrated development environment IDE <br>
 
 Run command line: <br>
 >Windows: <br>
+>   set RUNEOS_ROOT= project path <br>
 >   scripts\build webserver :8080 <br><br>
 >Linux: <br>
+>   export RUNEOS_ROOT= project path <br>
 >   scripts/build.bash webserver :8080 <br>
 
 
