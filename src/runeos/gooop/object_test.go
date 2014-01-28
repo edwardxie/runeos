@@ -1,8 +1,30 @@
 package gooop
 
 import (
+	"reflect"
 	"testing"
 )
+
+type SpecialString interface{}
+
+type TestStruct struct {
+	Dep1 string        `inject`
+	Dep2 SpecialString `inject`
+	Dep3 string
+}
+
+/* Test Helpers */
+func expect(t *testing.T, a interface{}, b interface{}) {
+	if a != b {
+		t.Errorf("Expected %v (type %v) - Got %v (type %v)", b, reflect.TypeOf(b), a, reflect.TypeOf(a))
+	}
+}
+
+func refute(t *testing.T, a interface{}, b interface{}) {
+	if a == b {
+		t.Errorf("Did not expect %v (type %v) - Got %v (type %v)", b, reflect.TypeOf(b), a, reflect.TypeOf(a))
+	}
+}
 
 func Test_NewObject(t *testing.T) {
 	obj := NewObject("NewObject")
@@ -17,10 +39,10 @@ func Test_NewObject(t *testing.T) {
 	obj.Set("testData2")
 	obj.Set("testData3")
 	obj.Set("testData1", "testData1")
-	if err := obj.Set("_NAME_", "testData1"); err != nil {
-		t.Error(err)
-	}
-	// if err := obj.Set("_NAME_", 12); err != nil {
+	// if err := obj.Set("_NAME_", "testData1"); err != ErrNo {
+	// 	t.Error(err)
+	// }
+	// if err := obj.Set("_NAME_", 12); err != ErrParamTooFew {
 	// 	t.Error(err)
 	// }
 	obj.Set(tmp)

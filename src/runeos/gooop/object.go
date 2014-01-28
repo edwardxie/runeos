@@ -28,9 +28,10 @@ func NewObject(params ...interface{}) Object {
 	return Object(&obj)
 }
 
-func (o *object) Set(params ...interface{}) error {
+func (o *object) Set(params ...interface{}) (err []*Error) {
+	err = make([]*Error, 0)
 	if len(params) == 0 {
-		err := fmt.Errorf("Param is nil, I not know you need what.")
+		err = append(err, ErrParamTooFew)
 		return err
 	}
 	for inx, param := range params {
@@ -40,7 +41,9 @@ func (o *object) Set(params ...interface{}) error {
 				if v, ok := params[inx+1].(string); ok {
 					o.name = v
 				} else {
-					return fmt.Errorf("the second param not be string or too few param.")
+					err = append(err, ErrParamTooFew)
+					err = append(err, ErrParamInvalid)
+					return err
 				}
 			}
 		default:
@@ -51,8 +54,7 @@ func (o *object) Set(params ...interface{}) error {
 
 func (o *object) Get(params ...interface{}) interface{} {
 	if len(params) == 0 {
-		err := fmt.Errorf("Param is nil, I not knowe you need what.")
-		return err
+		return ErrParamNil
 	}
 	for _, param := range params {
 		switch param.(type) {
