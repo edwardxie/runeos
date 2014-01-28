@@ -30,6 +30,7 @@ func NewError(msg string) *Error {
 
 func ContainError(err ...Error) bool {
 	r := false
+
 	return r
 }
 
