@@ -1,5 +1,9 @@
 package gooop
 
+import (
+	"fmt"
+)
+
 const (
 	ErrNoKind = iota
 	ErrCustomKind
@@ -24,16 +28,19 @@ var (
 	ErrParamTooMany = &Error{ErrParamTooManyKind, "Too many param."}
 )
 
-func NewError(msg string) *Error {
-	return &Error{ErrCustomKind, msg}
+type Error struct {
+	code   int
+	errmsg string
 }
 
-func ContainError(err ...Error) bool {
-	r := false
+func NewError(msg string) *Error { return &Error{ErrCustomKind, msg} }
 
-	return r
-}
+func (e *Error) Error() string { return fmt.Sprintf("%v: %v", e.code, e.errmsg) }
 
-func (e *Error) String() string {
-	return e.errmsg
-}
+// func (e *Error) String() string { return e.errmsg }
+
+func (e *Error) Set(params ...interface{}) error { return nil }
+
+func (e *Error) Get(params ...interface{}) interface{} { return nil }
+
+func (e *Error) Super(super *Object) {}

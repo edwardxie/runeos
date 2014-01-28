@@ -17,7 +17,7 @@ func NewObject(params ...interface{}) Object {
 		switch typ := param.(type) {
 		case string:
 			if isName {
-				panic("Too many string params set object name.")
+				return Object(ErrParamTooMany)
 			}
 			obj.name = param.(string)
 			isName = true
@@ -28,11 +28,9 @@ func NewObject(params ...interface{}) Object {
 	return Object(&obj)
 }
 
-func (o *object) Set(params ...interface{}) (err []*Error) {
-	err = make([]*Error, 0)
+func (o *object) Set(params ...interface{}) error {
 	if len(params) == 0 {
-		err = append(err, ErrParamTooFew)
-		return err
+		return ErrParamTooFew
 	}
 	for inx, param := range params {
 		switch param.(type) {
@@ -41,9 +39,7 @@ func (o *object) Set(params ...interface{}) (err []*Error) {
 				if v, ok := params[inx+1].(string); ok {
 					o.name = v
 				} else {
-					err = append(err, ErrParamTooFew)
-					err = append(err, ErrParamInvalid)
-					return err
+					return ErrParamInvalid //| ErrParamTooFew
 				}
 			}
 		default:

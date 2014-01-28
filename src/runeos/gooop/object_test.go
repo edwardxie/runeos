@@ -29,8 +29,11 @@ func refute(t *testing.T, a interface{}, b interface{}) {
 func Test_NewObject(t *testing.T) {
 	obj := NewObject("NewObject")
 	tmp := NewObject("TempObject")
-	//NewObject() //Prop if len=0 is nil
-	// NewObject("Too", "many") //panic("Too many string set object name.")
+	expect(t, tmp, Object)
+	NewObject() //Prop if len=0 is nil
+	if err := NewObject("Too", "many"); err != ErrParamTooMany {
+		t.Error(err)
+	}
 	tmp.Set(1)
 	tmp.Set(2)
 	tmp.Set(3)

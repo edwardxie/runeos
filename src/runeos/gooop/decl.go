@@ -7,7 +7,6 @@ import (
 type Object interface {
 	Propertyer
 	Methoder
-	Eventer
 }
 
 type Propertyer interface {
@@ -30,7 +29,7 @@ type Geter interface {
 }
 
 type Seter interface {
-	Set(...interface{}) []*Error
+	Set(...interface{}) error
 }
 
 type Flusher interface {
@@ -76,9 +75,4 @@ type MetaType struct {
 	kind map[string]interface{}
 	info map[int]string
 	flag int
-}
-
-type Error struct {
-	code   int
-	errmsg string
 }
