@@ -4,6 +4,15 @@ import (
 	"fmt"
 )
 
+type Eventer interface {
+	On()
+}
+
+type event struct {
+	Object
+	Methods map[string]interface{}
+}
+
 func NewEvent(obj Object) Eventer {
 	et := &event{
 		Object:  obj,
@@ -11,9 +20,10 @@ func NewEvent(obj Object) Eventer {
 	}
 	return Eventer(et)
 }
+func (e *event) On() {}
 
-func (e *event) AddEvent() { fmt.Println("Add event.") }
+func AddEvent() { fmt.Println("Add event.") }
 
-func (e *event) RemoveEvent() {}
+func RemoveEvent() {}
 
-func (e *event) SeekEvent() {}
+func SeekEvent() {}

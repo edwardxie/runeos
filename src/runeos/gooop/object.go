@@ -7,22 +7,57 @@ import (
 	// "runeos/utils"
 )
 
+type Object interface {
+	// This() Object
+	Propertyer
+	Methoder
+}
+
+type Propertyer interface {
+	Super(*Object)
+}
+
+type Methoder interface {
+	Geter
+	Seter
+}
+
+type Geter interface {
+	Get(...interface{}) interface{}
+}
+
+type Seter interface {
+	Set(...interface{}) error
+}
+
+type object struct {
+	name   string
+	flag   *Flag
+	parent *Object
+	lnext  *Object
+	rnext  *Object
+	member []*Variant
+}
+
 func NewObject(params ...interface{}) Object {
 	isName := false
-	obj := object{}
+	obj := object{member: make([]*Variant, 0)}
 	if len(params) == 0 {
 		return Object(&obj)
 	}
-	for inx, param := range params {
-		switch typ := param.(type) {
+	for _, param := range params {
+		switch param.(type) {
 		case string:
 			if isName {
-				return Object(ErrParamTooMany)
+				// return Object(ErrParamTooMany)
+				obj.member = append(obj.member, newVariant(param))
+				break
 			}
 			obj.name = param.(string)
 			isName = true
 		default:
-			fmt.Printf("Params for switch is %#v [index:type] => [%v:%T]\n ", params, inx, typ)
+			obj.member = append(obj.member, newVariant(param))
+			// fmt.Printf("Params for switch is %#v [index:type] => [%v:%T]\n ", params, inx, typ)
 		}
 	}
 	return Object(&obj)
@@ -64,6 +99,8 @@ func (o *object) Get(params ...interface{}) interface{} {
 				return fmt.Sprintf("%T", o)
 			case "_PRT_":
 				return o
+			case "_MEMBER_":
+				return o.member
 			}
 		default:
 
@@ -74,10 +111,24 @@ func (o *object) Get(params ...interface{}) interface{} {
 
 func (o *object) Super(super *Object) { o.parent = super }
 
-func (o *object) Flush() {}
+func (o *object) List() []*Variant { return o.member }
 
-func (o *object) AddEvent() {}
+// func (o *object) Member() ([]reflect.Value, error) {
+// 	i := 0
+// 	var in []reflect.Value
+// 	var f interface{}
+// 	for k, v := range o.member {
+// 		var in = make([]reflect.Value, k.NumIn())
+// 		in[k] = v
+// 		f = k
+// 	}
+// 	return reflect.ValueOf(f).Call(in), nil
+// }
 
-func (o *object) RemoveEvent() {}
+func (o *object) Map(key string) {}
 
-func (o *object) SeekEvent() {}
+func (o *object) Copy(dest *Object) {
+	var tmp Object
+	tmp = Object(o)
+	dest = &tmp
+}

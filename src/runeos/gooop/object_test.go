@@ -30,13 +30,13 @@ func refute(t *testing.T, a interface{}, b interface{}) {
 
 /* Test Items */
 func Test_NewObject(t *testing.T) {
-	obj := NewObject("NewObject")
+	obj := NewObject("NewObject", "Too", "many", 112, true)
 	refute(t, obj, new(Object))
 	//Param len=0 is nil and name is "", create no name object.
 	refute(t, NewObject(), new(Object))
 	//Too many string is error
-	expect(t, NewObject("Too", "many"), ErrParamTooMany)
-	// t.Logf("\nAddress: \t%v\nType: \t%v\nPRT: %v\n", obj.Get("_THIS_"), obj.Get("_TYPE_"), obj.Get("_PRT_"))
+	refute(t, NewObject("Too", "many"), new(Object)) //ErrParamTooMany
+	t.Logf("\nAddress: \t%v\nType: \t%v\nPRT: %#v\n", obj.Get("_THIS_"), obj.Get("_TYPE_"), obj.Get("_MEMBER_").([]*Variant)[1].data)
 }
 
 func Test_SuperObject(t *testing.T) {
