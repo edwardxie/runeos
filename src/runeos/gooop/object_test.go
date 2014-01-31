@@ -15,6 +15,11 @@ type TestStruct struct {
 	Dep3 string
 }
 
+var (
+	testdata = [...]interface{}{"NewObject", "Too", "many",
+		112, true, []byte("Hello,world")}
+)
+
 /* Test Helpers */
 func expect(t *testing.T, a interface{}, b interface{}) {
 	if a != b {
@@ -28,15 +33,29 @@ func refute(t *testing.T, a interface{}, b interface{}) {
 	}
 }
 
+func equal(t *testing.T, a interface{}, b interface{}) {
+	if reflect.DeepEqual(a, b) {
+		t.Errorf("Did not expect DeepEqual %v (type %v) - Got %v (type %v)", b, reflect.TypeOf(b), a, reflect.TypeOf(a))
+	}
+}
+
+func notequal(t *testing.T, a interface{}, b interface{}) {
+	if !reflect.DeepEqual(a, b) {
+		t.Errorf("Did not expect Not DeepEqual %v (type %v) - Got %v (type %v)", b, reflect.TypeOf(b), a, reflect.TypeOf(a))
+	}
+}
+
 /* Test Items */
 func Test_NewObject(t *testing.T) {
-	obj := NewObject("NewObject", "Too", "many", 112, true)
+	obj := NewObject("NewObject", "Too", "many",
+		112, true, []byte("Hello,world"))
 	refute(t, obj, new(Object))
 	//Param len=0 is nil and name is "", create no name object.
 	refute(t, NewObject(), new(Object))
 	//Too many string is error
 	refute(t, NewObject("Too", "many"), new(Object)) //ErrParamTooMany
-	t.Logf("\nAddress: \t%v\nType: \t%v\nPRT: %#v\n", obj.Get("_THIS_"), obj.Get("_TYPE_"), obj.Get("_MEMBER_").([]*Variant)[1].data)
+	t.Logf("\nName: \t\t%v\nAddress: \t%v\nType: \t\t%v\nPRT: \t\t%#v\n", obj.Get("_NAME_"), obj.Get("_THIS_"), obj.Get("_TYPE_"), obj.Get("_MEMBER_"))
+	// t.Logf("\nName: \t\t%v\nAddress: \t%v\nType: \t\t%v\nPRT: \t\t%#v\n", obj.Get("_NAME_"), obj.Get("_THIS_"), obj.Get("_TYPE_"), obj.Get("_MEMBER_").([]*Variant)[4].data[reflect.TypeOf([]byte("d"))].Bytes()) //[3].data[reflect.TypeOf(true)].Bool()
 }
 
 func Test_SuperObject(t *testing.T) {
