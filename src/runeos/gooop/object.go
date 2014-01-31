@@ -8,7 +8,7 @@ import (
 )
 
 type Object interface {
-	// This() Object
+	// This() *Object
 	Propertyer
 	Methoder
 }
@@ -36,12 +36,12 @@ type object struct {
 	parent *Object
 	lnext  *Object
 	rnext  *Object
-	member map[string]*Variant
+	member []*Variant
 }
 
 func NewObject(params ...interface{}) Object {
 	isName := false
-	obj := object{member: make(map[string]*Variant, 0)}
+	obj := object{member: make([]*Variant, 0)}
 	if len(params) == 0 {
 		return Object(&obj)
 	}
@@ -49,16 +49,17 @@ func NewObject(params ...interface{}) Object {
 		switch param.(type) {
 		case string:
 			if isName {
-				v := NewVariant(param)
-				obj.member[fmt.Sprintf("%p", v)] = v
+				// v := NewVariant(param)
+				// obj.member[fmt.Sprintf("%p", v)] = v
+				obj.member = append(obj.member, NewVariant(param))
 				break
 			}
 			obj.name = param.(string)
 			isName = true
 		default:
-			// obj.member = append(obj.member, NewVariant(param))
-			v := NewVariant(param)
-			obj.member[fmt.Sprintf("%p", v)] = v
+			obj.member = append(obj.member, NewVariant(param))
+			// v := NewVariant(param)
+			// obj.member[fmt.Sprintf("%p", v)] = v
 			// fmt.Printf("Params for switch is %#v [index:type] => [%v:%T]\n ", params, inx, typ)
 		}
 	}
@@ -76,7 +77,7 @@ func (o *object) Set(params ...interface{}) error {
 				if v, ok := params[idx+1].(string); ok {
 					o.name = v
 				} else {
-					o.member["_ERROR_"] = NewVariant(ErrParamInvalid)
+					// o.member["_ERROR_"] = NewVariant(ErrParamInvalid)
 					return ErrParamInvalid //| ErrParamTooFew
 				}
 			}
@@ -105,9 +106,10 @@ func (o *object) Get(params ...interface{}) interface{} {
 			case "_MEMBER_":
 				return o.member
 			case "_ERROR_":
-				if ev, eo := o.member["_ERROR_"]; eo {
-					return ev
-				}
+				// if ev, eo := o.member["_ERROR_"]; eo {
+				// 	return ev
+				// }
+				return nil
 			}
 		default:
 
@@ -118,7 +120,8 @@ func (o *object) Get(params ...interface{}) interface{} {
 
 func (o *object) Super(super *Object) { o.parent = super }
 
-func (o *object) List() map[string]*Variant { return o.member }
+// func (o *object) This() *Object             { return o }
+func (o *object) List() []*Variant { return o.member }
 
 // func (o *object) Member() ([]reflect.Value, error) {
 // 	i := 0
