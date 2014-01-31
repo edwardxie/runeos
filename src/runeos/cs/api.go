@@ -8,7 +8,7 @@ import (
 func Server(mode string, port string) error {
 	switch mode {
 	case "web":
-		return service.WebStart(port)
+		return service.WebServer(port)
 	default:
 		return fmt.Errorf("No server start mode! ")
 	}
