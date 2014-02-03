@@ -26,7 +26,7 @@ footer{
     bottom: 0;
     background: #444 url(/img/footer.png);
     text-shadow: 0px 0px 2px rgba(60,40,100,0.5);
-    box-shadow: inset 0 -5px 10px rgba(0,0,0,0.75);
+    /*box-shadow: inset 0 -5px 10px rgba(0,0,0,0.75);*/
     border-top: 1px #121212 solid; 
 }
 
@@ -53,28 +53,28 @@ ui{
 }
 
 div#bodybg{ 
-  position:fixed; 
-  top:0; 
-  left:0; 
-  bottom:0; 
-  right:0; 
-  z-index:-1; 
+    position:fixed; 
+    top:0; 
+    left:0; 
+    bottom:0; 
+    right:0; 
+    z-index:-1; 
 } 
 
 div#bodybg > img { 
-  height:100%;
-  width:100%; 
-  border:0; 
+    height:100%;
+    width:100%; 
+    border:0; 
 /*
   opacity:0.7;
   filter:alpha(opacity=0.7);
 */
 
-  /*filter: url(blur.svg#blur); */
-  -webkit-filter: blur(5px); 
-     -moz-filter: blur(10px);
-      -ms-filter: blur(10px);    
-          filter: blur(10px);
-  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); 
+  /*filter: url(blur.svg#blur);*/
+    -webkit-filter: blur(3px);
+     /*-moz-filter: blur(10px);*/
+      /*-ms-filter: blur(10px);*/
+          /*filter: blur(10px);*/
+  /*filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); */
 
 } 

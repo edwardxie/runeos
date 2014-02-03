@@ -2,6 +2,7 @@
 set APP=runeos
 set ADDR=":8808"
 
+set RUNEOS_ROOT=E:\projects\goprj\runeos
 set GOPATH=E:\projects\goprj\runeos;E:\projects\goprj\gopath
 
 if exist bin\%APP%.exe del bin\%APP%.exe
