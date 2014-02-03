@@ -17,33 +17,8 @@
     top: 100px;
 }
 
-.btn-silver{
- /*   background: #630030 url(/img/overlay-button.png) repeat-x 0 0;
-    display: inline-block;
-    padding: 5px 15px 6px;
-    color: #fff !important;
-    font-size: 13px;
-    font-weight: bold;
-    line-height: 1;
-    text-decoration: none;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
-    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
-    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
-    border-bottom: 1px solid rgba(0,0,0,0.25);
-    position: relative;
-    cursor: pointer;
-    overflow: visible;
-    width: auto;
-    background-color: #a9014b;
-    -webkit-animation-name: magentaPulse;
-    -webkit-animation-duration: 2s; */    
-}
-
 .header-unit{
     height: 64px;
-    background: url(/img/kd.jpg) right top no-repeat;
 }
 
 .table-set-lr{
@@ -56,38 +31,9 @@
 
 .about{
     padding-left: 30px;
-    background: url(/img/kd_24x24x32.png) left top no-repeat;
 }
 
 .aboutme{
     float: right;
     padding-right: 3%;
 }
-
-/*.table-jb{
-    width: 90%;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
-.table-jb-head{
-    text-align: left;
-    border-color: #000;
-    border-bottom: 1px solid;
-}
-
-.table-jb-head-title{
-}
-
-.table-jb-td{
-    height: 50px;
-}
-
-.table-jb-td-jbs{
-    text-shadow: 0px 0px 5px #0000FF;
-}*/
-
-/*.div-detail-table{
-    text-align: left;
-    border: 1px #121212 solid;
-}*/
