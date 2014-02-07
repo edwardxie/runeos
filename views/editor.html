@@ -1,17 +1,32 @@
 {[{define "editor"}]}
-<div id="editor">
-package main
+<div id="editor">package main
 import "fmt"
 
 func main(){
     fmt.Println("欢迎你来到神秘世界！")
 }
+
+type Stringer interface{
+    String() string
+}
+
+type myStruct struct{
+    Name string
+    ui   uint32
+    isBool bool
+}
+
+func (ms *myStruct) String() string{
+    fmt.Printf("%#v\n", ms.Name)
+}
 </div>
 <script src="addons/ace/ace.js" type="text/javascript" ></script>
 <script>
     var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/twilight");
+    editor.setTheme("ace/theme/monokai");
+    editor.setHighlightActiveLine(false);
+    editor.setOverwrite(false);
     editor.getSession().setMode("ace/mode/golang");
-    editor.setFontSize(11);
+    editor.setFontSize(14);
 </script>
 {[{end}]}

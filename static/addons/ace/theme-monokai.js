@@ -33,15 +33,15 @@ ace.define('ace/theme/monokai', ['require', 'exports', 'module' , 'ace/lib/dom']
 exports.isDark = true;
 exports.cssClass = "ace-monokai";
 exports.cssText = ".ace-monokai .ace_gutter {\
-background: #2F3129;\
-color: #8F908A\
+/*background: #2F3129;*/\
+/*color: #8F908A*/\
 }\
 .ace-monokai .ace_print-margin {\
 width: 1px;\
 background: #555651\
 }\
 .ace-monokai {\
-background-color: #272822;\
+/*background-color: #272822;*/\
 color: #F8F8F2\
 }\
 .ace-monokai .ace_cursor {\
