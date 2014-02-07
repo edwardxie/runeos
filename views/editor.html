@@ -1,11 +1,17 @@
 {[{define "editor"}]}
-<div id="editor">function foo(items) {
-    var x = "All this is syntax highlighted";
-    return x;
-}</div>
+<div id="editor">
+package main
+import "fmt"
+
+func main(){
+    fmt.Println("欢迎你来到神秘世界！")
+}
+</div>
+<script src="addons/ace/ace.js" type="text/javascript" ></script>
 <script>
     var editor = ace.edit("editor");
-    editor.setTheme("/addons/ace/theme/monokai");
-    editor.getSession().setMode("/addons/ace/mode/javascript");
+    editor.setTheme("ace/theme/twilight");
+    editor.getSession().setMode("ace/mode/golang");
+    editor.setFontSize(11);
 </script>
 {[{end}]}

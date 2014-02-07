@@ -37,7 +37,10 @@ label{
 }
 
 body{
-
+    height: 100%;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif, Tahoma, Verdana, sans-serif;
+    font-size: 12px;
     background: url(/img/bg.png) left top repeat;
 }
 
