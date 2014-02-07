@@ -1,7 +1,7 @@
-define(function(require, exports, module) {
-"use strict";
+ace.define('ace/snippets/ada', ['require', 'exports', 'module' ], function(require, exports, module) {
 
-exports.snippetText = require("../requirejs/text!./ada.snippets");
+
+exports.snippetText = "";
 exports.scope = "ada";
 
 });

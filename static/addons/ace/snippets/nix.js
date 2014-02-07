@@ -1,7 +1,7 @@
-define(function(require, exports, module) {
-"use strict";
+ace.define('ace/snippets/nix', ['require', 'exports', 'module' ], function(require, exports, module) {
 
-exports.snippetText = require("../requirejs/text!./nix.snippets");
+
+exports.snippetText = "";
 exports.scope = "nix";
 
 });

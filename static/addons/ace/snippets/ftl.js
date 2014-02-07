@@ -1,7 +1,7 @@
-define(function(require, exports, module) {
-"use strict";
+ace.define('ace/snippets/ftl', ['require', 'exports', 'module' ], function(require, exports, module) {
 
-exports.snippetText = require("../requirejs/text!./ftl.snippets");
+
+exports.snippetText = "";
 exports.scope = "ftl";
 
 });

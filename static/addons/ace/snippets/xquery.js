@@ -1,7 +1,7 @@
-define(function(require, exports, module) {
-"use strict";
+ace.define('ace/snippets/xquery', ['require', 'exports', 'module' ], function(require, exports, module) {
 
-exports.snippetText = require("../requirejs/text!./xquery.snippets");
+
+exports.snippetText = "";
 exports.scope = "xquery";
 
 });

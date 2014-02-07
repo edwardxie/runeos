@@ -1,7 +1,7 @@
-define(function(require, exports, module) {
-"use strict";
+ace.define('ace/snippets/assembly_x86', ['require', 'exports', 'module' ], function(require, exports, module) {
 
-exports.snippetText = require("../requirejs/text!./assembly_x86.snippets");
+
+exports.snippetText = "";
 exports.scope = "assembly_x86";
 
 });

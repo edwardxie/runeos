@@ -1,7 +1,7 @@
-define(function(require, exports, module) {
-"use strict";
+ace.define('ace/snippets/pgsql', ['require', 'exports', 'module' ], function(require, exports, module) {
 
-exports.snippetText = require("../requirejs/text!./pgsql.snippets");
+
+exports.snippetText = "";
 exports.scope = "pgsql";
 
 });
