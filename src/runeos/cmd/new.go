@@ -21,5 +21,5 @@ func init() {
 
 func createApp(cmd *Command, args []string) {
 	currpath, _ := os.Getwd()
-	fmt.Printf("\n[调试]Create application %v\n", currpath)
+	fmt.Printf("\n[调试]Exec New application %v\n", currpath)
 }

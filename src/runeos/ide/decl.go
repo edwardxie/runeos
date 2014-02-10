@@ -5,7 +5,7 @@ type Enver interface{}
 
 type Config struct {
 	Setting
-	Plugins
+	// Plugins
 }
 
 type Setting struct {
@@ -88,6 +88,8 @@ type KeyMaps struct{}
 
 // Project type declaration
 type Project struct {
+	Name     string
+	Type     string
 	Path     string
 	FileList string
 	FileType string

@@ -13,7 +13,9 @@ import (
 
 func WebServer(port string) error {
 	m := martini.Classic()
-	m.Use(martini.Static("static/."))
+	m.Use(martini.Static("static/.", martini.StaticOptions{
+		SkipLogging: false,
+	}))
 	m.Use(render.Renderer(render.Options{
 		Directory:  "views",
 		Layout:     "layout",
