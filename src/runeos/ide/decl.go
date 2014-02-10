@@ -3,6 +3,22 @@ package ide
 // Environment type declaration
 type Enver interface{}
 
+type Config struct {
+	Setting
+	Plugins
+}
+
+type Setting struct {
+	Project
+	IDE
+}
+
+type IDE struct {
+	Appearance
+	Editor  `json:"Editor"`
+	KeyMaps `json:"KeyMaps"`
+}
+
 type Env struct {
 	Os       string `json:"Os"`
 	Language string `json:"Language"`
@@ -21,9 +37,7 @@ type Env struct {
 	Bashenv
 }
 
-// type Sysenv struct {
-//  Sysenv []string
-// }
+type Appearance struct{}
 
 type Sdk struct{}
 
@@ -58,11 +72,6 @@ type Workspace struct {
 	Env      `json:"Env"`
 	Setting  `json:"Setting"`
 	Projects []Project `json:"Projects"`
-}
-
-type Setting struct {
-	Editor  `json:"Editor"`
-	KeyMaps `json:"KeyMaps"`
 }
 
 type Editor struct {
