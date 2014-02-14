@@ -1,16 +1,14 @@
-body{
+body,header,footer,section,div,nav,table,tr,th,td{
+    margin: 0;
+    padding: 0;
     height: 100%;
     width: 100%;
-    background: url(/img/bg.png) left top repeat;
+    display: block;
 }
 
-/*table,tr,th,td,*/
-header,footer,section,div,nav{ 
-    padding: 0;
-    margin: 0;
-    display: block;  
+body{
+    background: url(/img/bg-pattern.jpg) left top repeat;
 }
-
 
 header,footer{
     position: relative;
@@ -65,7 +63,7 @@ div#bodybg > img {
 */
 
   /*filter: url(blur.svg#blur);*/
-    -webkit-filter: blur(3px);
+    /*-webkit-filter: blur(3px);*/
      /*-moz-filter: blur(10px);*/
       /*-ms-filter: blur(10px);*/
           /*filter: blur(10px);*/

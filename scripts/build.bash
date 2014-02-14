@@ -2,7 +2,7 @@
 APP="runeos"
 ADDR=":8080"
 
-export MARTINI_ENV=production
+# export MARTINI_ENV=production
 
 PWD=`pwd`
 export RUNEOS_ROOT=${PWD}
