@@ -5,10 +5,12 @@ import (
 	"fmt"
 	"html/template"
 	"io"
-	"log"
+	// "log"
 	"os"
 	"strings"
 )
+
+var ()
 
 type Command struct {
 	Run         func(cmd *Command, args []string)
@@ -41,7 +43,7 @@ func (c *Command) Runnable() bool {
 
 var commands = []*Command{
 	cmdNew,
-	cmdWebServer,
+	cmdWebide,
 	cmdServer,
 	cmdDaemon,
 	// cmdHelp,
@@ -50,7 +52,7 @@ var commands = []*Command{
 func Main() {
 	flag.Usage = usage
 	flag.Parse()
-	log.SetFlags(0)
+	// log.SetFlags(0)
 
 	args := flag.Args()
 	if len(args) < 1 {
@@ -62,8 +64,8 @@ func Main() {
 		return
 	}
 
-	httpMode := *flagHttpAddr != ""
-	fmt.Printf("Args: %v\nFlag: %v httpmode: %v\n", args, *flagHttpAddr, httpMode)
+	// httpMode := *flagHttpAddr != ""
+	// fmt.Printf("Args: %v\nFlag: %v httpmode: %v\n", args, *flagHttpAddr, httpMode)
 	// if httpMode {
 	// 	Command.Run(commands[1], args)
 	// 	os.Exit(2)

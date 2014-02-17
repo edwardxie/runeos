@@ -1,13 +1,13 @@
 package cmd
 
 import (
-	"flag"
+	// "flag"
 	"fmt"
 	"os"
 )
 
 var (
-	flag_config_path = flag.String("cp", "conf", cmdDaemon.Long)
+	flag_config_path = cmdDaemon.Flag.String("cp", "conf", "cmdDaemon.Long")
 	cmdDaemon        = &Command{
 		UsageLine: "daemon",
 		Short:     "Application daemon process.",
@@ -23,6 +23,7 @@ func init() {
 }
 
 func registry_command_daemon(cmd *Command, args []string) {
+	fmt.Printf("Daemon args: %v\n", args)
 	switch {
 	case len(args) > 0:
 		fmt.Printf("\n[调试]Exec application daemon process -> %v is run? -> %v\n", args[0], cmd.Runnable())

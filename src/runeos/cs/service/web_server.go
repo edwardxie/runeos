@@ -11,7 +11,7 @@ import (
 	// "runeos/ide"
 )
 
-func WebServer(port string) error {
+func WebIdeServer(port string) error {
 	m := martini.Classic()
 	m.Use(martini.Static("static/.", martini.StaticOptions{
 		SkipLogging: true,
