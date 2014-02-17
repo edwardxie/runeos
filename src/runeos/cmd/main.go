@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"html/template"
 	"io"
-	// "log"
+	"log"
 	"os"
 	"strings"
 )
@@ -42,23 +42,25 @@ func (c *Command) Runnable() bool {
 var commands = []*Command{
 	cmdNew,
 	cmdWebServer,
+	cmdServer,
+	cmdDaemon,
 	// cmdHelp,
 }
 
 func Main() {
 	flag.Usage = usage
 	flag.Parse()
-	// log.SetFlags(0)
+	log.SetFlags(0)
 
 	args := flag.Args()
-	// if len(args) < 1 {
-	// 	usage()
-	// }
+	if len(args) < 1 {
+		usage()
+	}
 
-	// if args[0] == "help" {
-	// 	help(args[1:])
-	// 	return
-	// }
+	if args[0] == "help" {
+		help(args[1:])
+		return
+	}
 
 	httpMode := *flagHttpAddr != ""
 	fmt.Printf("Args: %v\nFlag: %v httpmode: %v\n", args, *flagHttpAddr, httpMode)
