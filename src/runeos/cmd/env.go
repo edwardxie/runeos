@@ -41,6 +41,7 @@ func mkEnv() []envVar {
 
 		// disable escape codes in clang errors
 		{"TERM", "dumb"},
+		{"RUNEOS_ROOT", os.Getenv("RUNEOS_ROOT")},
 	}
 	return env
 }
