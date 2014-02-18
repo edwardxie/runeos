@@ -6,10 +6,10 @@ Golang Sci-Fi type Integrated development environment IDE <br>
 Run command line: <br>
 >Windows: <br>
 >   * `set RUNEOS_ROOT= Runeos path`<br>
->   * `scripts\build webserver :8080`<br><br>
+>   * `scripts\build webide [-http=9090]`<br><br>
 >Linux: <br>
 >   * `export RUNEOS_ROOT= Runeos path`<br>
->   * `scripts/build.bash webserver :8080`<br>
+>   * `scripts/build.bash webide [-http=9090]`<br>
 
 
 <br>
