@@ -43,6 +43,7 @@ func (c *Command) Runnable() bool {
 
 var commands = []*Command{
 	cmdEnv,
+	cmdConfig,
 	cmdNew,
 	cmdWebide,
 	cmdServer,
