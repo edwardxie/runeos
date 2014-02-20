@@ -10,7 +10,7 @@ var (
 
 	flag_config_path_file = cmdConfig.Flag.String("path-file", "conf/runeos.json", cmdConfig.Long)
 	cmdConfig             = &Command{
-		UsageLine: "config [-p=conf]",
+		UsageLine: "config [-path-file=conf/runeos.json]",
 		Short:     "Handle IDE config folder and files manager.",
 		Long: `
 Application handle IDE config folder and files manager.
